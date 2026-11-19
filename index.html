@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>홍카페 섭외 템플릿</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;700&display=swap">
+<style>
+:root{
+ --bg:#f4f4f2;--rail:#eaeae7;--card:#ffffff;--ink:#1e1e22;--sub:#6b6b73;--line:#dcdcd8;
+ --ac:#26262b;--acw:#ffffff;--acs:#ececea;--hi:#ffd9b0;--bub:#fff4c2;--bubl:#f0de8f;--red:#c8372d;
+ --sans:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+ --serif:"Noto Serif KR","Batang",serif;
+ box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+ --bg:#141416;--rail:#1a1a1d;--card:#202024;--ink:#ececf0;--sub:#a0a0aa;--line:#303036;
+ --ac:#ececf0;--acw:#141416;--acs:#2a2a2f;--hi:#6a4a2a;--bub:#3a3420;--bubl:#5a5030;--red:#ff8a7a}}
+:root[data-theme="dark"]{
+ --bg:#141416;--rail:#1a1a1d;--card:#202024;--ink:#ececf0;--sub:#a0a0aa;--line:#303036;
+ --ac:#ececf0;--acw:#141416;--acs:#2a2a2f;--hi:#6a4a2a;--bub:#3a3420;--bubl:#5a5030;--red:#ff8a7a}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{background:var(--bg);color:var(--ink);font:15px/1.6 var(--sans)}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+
+.app{display:grid;grid-template-columns:250px 1fr;height:100%}
+.brand{font:700 19px var(--serif);margin:2px 8px 18px}
+.search{width:300px;max-width:100%;position:relative}
+.search input{width:100%;padding:9px 36px 9px 14px;border:1px solid var(--line);border-radius:999px;background:var(--card)}
+.search button{position:absolute;right:6px;top:50%;transform:translateY(-50%);border:0;background:none;color:var(--sub);padding:4px 8px;display:none}
+.search.has button{display:block}
+.rail{background:var(--rail);border-right:1px solid var(--line);padding:16px 12px;overflow:auto}
+.rail .cap{font-size:12px;color:var(--sub);margin:2px 8px 8px}
+.sec{display:flex;justify-content:space-between;align-items:center;width:100%;text-align:left;border:0;background:none;padding:10px 12px;border-radius:10px}
+.sec:hover{background:var(--card)}
+.sec.on{background:var(--ac);color:var(--acw);font-weight:700}
+.sec .c{font-size:12px;opacity:.75}
+.addsec{margin-top:10px;width:100%;border:1px dashed var(--sub);background:none;border-radius:10px;padding:9px;color:var(--sub)}
+.addsec:hover{color:var(--ac);border-color:var(--ac)}
+.addrow{display:flex;gap:6px;margin-top:10px}
+.addrow .addsec{flex:1;margin:0}
+.arrow{width:40px;border:1px solid var(--line);background:var(--card);border-radius:10px;color:var(--sub)}
+.arrow:hover{border-color:var(--ac);color:var(--ac)}
+.main{padding:32px 40px 60px;overflow:auto}
+.inner{max-width:820px;margin:0 auto}
+
+.bar{display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;margin-bottom:24px}
+.sechead{display:flex;align-items:center;gap:10px;flex:1;min-width:200px}
+.sechead h2{font:700 26px var(--serif);margin:0;margin-right:6px}
+.g{border:1px solid var(--line);background:var(--card);border-radius:8px;padding:5px 11px;font-size:13px}
+.g:hover{border-color:var(--ac);color:var(--ac)}
+.g.red:hover{border-color:var(--red);color:var(--red)}
+.pick{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}
+.pick select{flex:1;min-width:220px;padding:11px 14px;border:1px solid var(--line);border-radius:10px;background:var(--card);font-weight:500}
+.btn{border:1px solid var(--ac);background:var(--ac);color:var(--acw);border-radius:10px;padding:10px 18px;font-weight:700}
+.btn:hover{filter:brightness(1.08)}
+.btn.line{background:var(--card);color:var(--ink);border-color:var(--line);font-weight:500}
+.btn.line:hover{border-color:var(--ac);color:var(--ac)}
+.btn.danger{background:var(--red);border-color:var(--red);color:#fff}
+.btn:disabled{opacity:.45;cursor:default}
+.btn:disabled:hover{filter:none;border-color:var(--line);color:var(--ink)}
+
+.tpl h3{font:700 20px var(--serif);margin:0 0 12px}
+.bubble{position:relative;background:var(--bub);border:1px solid var(--bubl);border-radius:4px 18px 18px 18px;padding:18px 20px;white-space:pre-wrap;line-height:1.85;word-break:keep-all;overflow-wrap:anywhere}
+.bubble.ed{cursor:text}
+.bubble.ed:hover{border-color:var(--ac)}
+.inl{display:block;width:100%;min-height:240px;resize:vertical;font:inherit;line-height:1.85;color:var(--ink);background:var(--bub);border:2px solid var(--ac);border-radius:4px 18px 18px 18px;padding:17px 19px}
+.meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:14px}
+.meta .n{margin-left:auto;font-size:13px;color:var(--sub)}
+.empty{padding:40px 0;color:var(--sub)}
+.empty b{display:block;color:var(--ink);margin-bottom:4px;font-size:16px}
+
+.res{display:block;width:100%;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:10px}
+.res:hover{border-color:var(--ac)}
+.res .p{font-size:12px;color:var(--ac);font-weight:700}
+.res .t{font-weight:700;margin:2px 0}
+.res .s{font-size:13px;color:var(--sub);white-space:pre-wrap}
+mark{background:var(--hi);color:inherit;border-radius:3px;padding:0 1px}
+.rh{font:700 18px var(--serif);margin:0 0 14px}
+
+.ov{position:fixed;inset:0;background:rgba(10,14,20,.5);display:none;align-items:center;justify-content:center;padding:16px;z-index:5}
+.ov.show{display:flex}
+.modal{background:var(--card);border-radius:16px;padding:22px;width:100%;max-width:580px;max-height:92vh;overflow:auto}
+.modal h3{font:700 19px var(--serif);margin:0 0 6px}
+.modal label{display:block;font-size:13px;color:var(--sub);margin:14px 0 5px}
+.modal input,.modal textarea,.modal select{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg)}
+.modal textarea{min-height:240px;resize:vertical;line-height:1.7}
+.modal .acts{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}
+.modal p{margin:8px 0 0}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:999px;opacity:0;pointer-events:none;transition:opacity .15s;z-index:9}
+.toast.show{opacity:1}
+.foot{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);font-size:13px}
+.foot button{background:none;border:0;color:var(--sub);text-decoration:underline;padding:0}
+.gbtn{margin-top:12px}
+.gcard{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;margin-bottom:14px}
+.glabel{font-weight:700;font-size:15px;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.gline{margin:0;line-height:1.7}
+.gnote{position:relative;padding-left:1.2em;font-size:13px;line-height:1.7;color:var(--sub);margin:6px 0 0}
+.gnote:before{content:'※';position:absolute;left:0}
+.steps{list-style:none;margin:0;padding:0}
+.gstep{position:relative;display:flex;gap:12px;padding-bottom:18px}
+.gstep:last-child{padding-bottom:0}
+.gstep:before{content:'';position:absolute;left:11px;top:28px;bottom:2px;width:1px;background:var(--line)}
+.gstep:last-child:before{display:none}
+.snum{flex-shrink:0;width:24px;height:24px;border-radius:50%;background:var(--ac);color:var(--acw);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.sbody{flex:1;min-width:0}
+.stitle{font-weight:700;line-height:24px}
+.demo{display:inline-block;padding:1px 12px;border-radius:8px;font-size:13px;font-weight:700;line-height:1.6}
+.demo.dark{background:var(--ac);color:var(--acw)}
+.demo.line{border:1px solid var(--line);font-weight:500;background:var(--bg)}
+.callout{background:color-mix(in srgb,var(--red) 10%,var(--card));border:1px solid color-mix(in srgb,var(--red) 35%,var(--card));border-radius:8px;padding:12px 14px;line-height:1.7;color:var(--red);margin-bottom:12px}
+.glist{list-style:none;margin:0;padding:0}
+.glist li{position:relative;padding-left:1em;font-size:13px;line-height:1.7;color:var(--sub);margin-top:6px}
+.glist li:before{content:'·';position:absolute;left:0;font-weight:700}
+
+@media(max-width:700px){
+ .app{grid-template-columns:1fr;height:auto;min-height:100%}
+ .brand{display:none}
+ .search{width:100%}
+ .addrow{margin:0}
+ .gbtn{margin-top:0}
+ .rail{border-right:0;border-bottom:1px solid var(--line);padding:10px 12px;display:flex;gap:6px;overflow-x:auto;align-items:center}
+ .rail .cap{display:none}
+ .sec{width:auto;white-space:nowrap;gap:6px;background:var(--card)}
+ .addsec{margin:0;width:auto;white-space:nowrap}
+ .main{padding:20px 16px 60px;overflow:visible}
+ .sechead h2{font-size:22px}
+}
+</style>
+</head>
+<body>
+<div class="app">
+ <nav class="rail" id="rail"></nav>
+ <main class="main"><div class="inner">
+  <div class="bar"><div class="sechead" id="title"></div>
+   <div class="search" id="sbox"><input id="q" type="search" placeholder="제목이나 내용으로 검색" autocomplete="off"><button id="qx" aria-label="검색어 지우기">✕</button></div></div>
+  <div id="main"></div>
+ </div></main>
+</div>
+<div class="ov" id="ov"><div class="modal" id="modal" role="dialog" aria-modal="true"></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+var KEY="hongcafe_templates_v3";
+var D={sections:[]},sel={s:null,i:null},q="",mode="loading",dbDoc=null,W=true,seeded=false,editId=null,draft="",view="tpl";
+function uid(){return"id"+Date.now().toString(36)+Math.floor(Math.random()*1e4)}
+var DEFAULT_SECTIONS=[{"name": "상담사 섭외", "items": [{"title": "카카오톡 오픈 채팅&문자 템플릿", "body": "선생님, 안녕하세요.\n국내 1위 전화 운세 상담 플랫폼 홍카페 운영팀입니다.\n\n다름이 아니라 현재 홍카페에서 함께 활동하실 전문가 선생님을 모시고 있어 오픈채팅으로 연락드리게 되었습니다.\n\n회원 수가 많아 안정적으로 상담 기회가 있고, 선생님들이 상담에 집중하실 수 있도록 1:1 운영 지원, 작명 / 부적 / 맞춤 작업물 상품 판매 등 다양한 지원을 제공하고 있어요!\n\n활동은 선생님 편의에 맞춰 가능하며, 실적에 따라 단계와 혜택이 점점 확대됩니다.\n\n혹시 홍카페 활동에 관심 있으시다면 편하게 답장 주시면 자세히 안내드리겠습니다 🙂\n\n긴 글 읽어주셔서 감사합니다."}, {"title": "SNS DM 템플릿", "body": "선생님, 안녕하세요. \n국내 1위 전화 운세 상담 플랫폼 홍카페입니다.\n\n현재 홍카페에서는 타로 / 사주 / 신점 각 분야 전문가 상담사를 모집하고 있습니다.\n홍카페는 회원 수가 많은 운세 플랫폼으로 상담 기회가 안정적인 편이며, 상담사 선생님들이 상담에 집중하실 수 있도록 다양한 운영 지원을 제공하고 있습니다.\n\n✔ 상담사 활동 혜택\n· 전문 매니저 1:1 관리 및 운영 지원\n· 마케팅 지원 및 상담사 노출 확대 지원\n· 진짜 사진 인증 상담사 제도 운영\n· 파트너 상담사 승급 시 추가 혜택 및 개별 지원\n· 작명 / 부적 / 맞춤 작업물 등 상품 판매 가능\n· 클래스 및 대면 상담 상품 등록 가능\n\n✔ 상담사 단계\n· 상담사는 그린 / 퍼플 두 가지 체계로 운영되며 각각 0~6단계까지 있습니다.\n· 그린 0단계 : 상담 시작가 500코인\n· 퍼플 0단계 : 상담 시작가 1,000코인\n\n활동 실적(접속시간, 상담료 등)에 따라 단계가 상승하며 단계가 올라갈수록 상담 단가와 혜택이 확대됩니다.\n\n✔ 정산 안내\n· 매달 10일 정산금 지급\n· 세금 3.3% 공제 후 입금\n· 본인 명의 계좌로 정산\n\n✔ 추가 혜택\n상담사 소개 제도 운영\n→ 새로운 상담사를 소개해 주시면 소개비 지급 혜택이 있습니다.\n\n🔗 홍카페 자세히 알아보기 : https://hong-operation.github.io/hongcafe.b2b/\n\n홍카페 입점에 관심 있으시면 편하게 회신 부탁드립니다."}]}, {"name": "파트너십", "items": [{"title": "SNS DM 템플릿", "body": "안녕하세요 😊\n전화 운세 상담 플랫폼 홍카페 운영팀입니다.\n\n홍카페는 타로, 사주, 신점 등 다양한 분야의 1:1 전화 상담을 제공하는\n국내 최대 규모의 운세 전문 서비스입니다.\n\n이번에 홍카페에서 외부 제휴 프로그램을 새롭게 오픈하게 되어 안내드립니다.\n\n파트너사 고객분들이 제공된 링크 또는 QR코드를 통해 상담을 이용하실 경우,\n이에 따른 수수료 형태의 리워드가 제공되는 구조입니다.\n\n연말·연초 운세 수요가 특히 높은 시기인 만큼,\n방문 고객분들께도 🎉흥미로운 콘텐츠로 자연스럽게 어필할 수 있을 것이라 생각합니다.\n\n제휴 프로그램에 대해 더 자세한 안내를 원하신다면\n편하게 문의 주세요 😊\n\n🔗 홍카페 자세히 알아보기 : https://hong-operation.github.io/hongcafe.b2b/\n\n감사합니다.\n좋은 인연으로 함께할 수 있기를 기대하겠습니다🙏"}, {"title": "이메일 발송 템플릿", "body": "- 제목: [파트너십 제안] 전화 운세 상담 플랫폼 홍카페에서 협업 요청드립니다.\n\n- 내용:\n안녕하세요, [파트너사 명] 님.\n\n반려동물을 가족처럼 생각하는 보호자들과의 신뢰를 가장 중요하게 여기시는 [파트너사 명]의 운영 방식이 인상 깊었습니다.\n\n반려동물과 함께하는 일상을 소중히 여기는 브랜드라는 점에서 홍카페와도 결이 잘 맞는다고 생각해 연락드립니다.\n\n국내 1위 운세 상담 플랫폼 홍카페를 운영하는 홍카페 파트너십팀입니다 🙌\n\n💬 누적 상담 650만+ 건\n📝 누적 후기 92만+ 건\n🧑 💼 전문 상담사 1,100명+\n⭐ 평균 별점 4.95점\n\n🔗 사이트 바로가기\nhttps://www.hongcafe.com/\n\n─────────────────────────────\n\n🎯 파트너십 제안 배경\n\n홍카페 상담 고객 중 반려동물의 건강운·궁합 등 펫타로 콘텐츠에 대한 관심이 꾸준히 높습니다.\n\n[파트너사 명]에 방문하는 보호자들에게 홍카페의 펫타로 상담을, 홍카페 이용자에게는 [파트너사 명] 브랜드를 자연스럽게 소개하는 교차 프로모션을 통해 양쪽 모두 신규 고객 접점을 넓힐 수 있습니다.\n\n─────────────────────────────\n\n🎁 지원 가능 내용\n\n🖼️ 홍보물 제작 및 매장 세팅 지원\n포스터, POP, 명함 등 홍보물 제작부터 QR 스탠드 등 매장 내 세팅까지 함께 지원합니다.\n\n🤝 공동 프로모션 실행\n시즌별 이벤트를 함께 기획하고 실행해 자연스러운 고객 접점을 만듭니다.\n\n💰 수수료 리워드\n기본 수수료 5% (+성과 인센티브 0.5%~1%p)를 매월 지급합니다.\n\n🏆 우수 파트너 추가 노출 보너스\n월 성과 상위 파트너는 홍카페 공식 채널 사례 노출 + 카드뉴스 발행 혜택을 드립니다.\n\n※ 지원 내용은 귀사와 협의 후 상황에 맞게 조정 가능합니다.\n\n─────────────────────────────\n\n📎 추가 참고\n\n▶ 파트너십 프로그램 소개\nhttps://hong-operation.github.io/hongcafe.b2b/partnership\n\n관련하여 유선 또는 미팅으로 구체적인 협업 방향을 논의드리고 싶습니다.\n편하신 일정 알려주시면 맞춰 연락드리겠습니다 🙏\n\n감사합니다.\n\n홍카페 파트너십팀 드림"}]}, {"name": "앰배서더", "items": [{"title": "SNS DM 템플릿(기본)", "body": "안녕하세요, 운세 상담 플랫폼 홍카페입니다.\n\n평소 콘텐츠를 통해 다양한 서비스와 경험을 소개하고 계신 점이 인상 깊어 연락드렸어요!\n\n홍카페의 타로·사주·신점 상담을 직접 경험해보고 SNS에 후기를\n소개해주시는 앰배서더 활동을 제안드리고 싶습니다.\n\n<앰배서더 혜택>\n- 앰배서더 선정 및 활동 시 홍카페 캐시 30,000코인 지급\n- 콘텐츠 활동에 따른 홍카페 캐시 최대 150,000코인 지급\n- 개인 전용 링크로 가입한 신규 회원의 유료 결제 발생 시 결제 금액의 5% 리워드 지급\n(ex. 전용 링크로 가입한 회원이 30,000코인 결제 시 리워드 금액 1,500원 지급)\n\n🔗 홍카페 바로가기\nhttps://www.hongcafe.com/\n\n🔗 앰배서더 모집 페이지 바로가기\nhttps://www.hongcafe.com/event/event/detail/EV-20260827104723\n\n관심 있으시다면 앰배서더 활동 및 자세한 혜택 내용을 안내드릴게요!\n\n편하게 답변 부탁드립니다!"}, {"title": "SNS DM 템플릿(새해)", "body": "안녕하세요, 운세 상담 플랫폼 홍카페입니다.\n\n평소 콘텐츠를 통해 다양한 서비스와 경험을 소개하고 계신 점이 인상 깊어 연락드렸어요!\n\n연말을 맞아 다가오는 새해를 준비하는 분들이 많아지는 만큼\n홍카페의 타로·사주·신점 상담을 직접 경험하고 신년 운세 및 상담 후기를 SNS에 소개해주시는 앰배서더 활동을 제안드리고 싶습니다.\n\n특히 다가오는 2027년 신년 운세를 주제로 다양한 콘텐츠를 소개해 주시면 좋을 것 같습니다.\n\n<앰배서더 혜택>\n- 앰배서더 선정 및 활동 시 홍카페 캐시 30,000코인 지급\n- 콘텐츠 활동에 따른 홍카페 캐시 최대 150,000코인 지급\n- 개인 전용 링크로 가입한 신규 회원의 유료 결제 발생 시 결제 금액의 5% 리워드 지급\n(ex. 전용 링크로 가입한 회원이 30,000코인 결제 시 리워드 금액 1,500원 지급)\n\n🔗 홍카페 바로가기\nhttps://www.hongcafe.com/\n\n🔗 앰배서더 모집 페이지 바로가기\nhttps://www.hongcafe.com/event/event/detail/EV-20260827104723\n\n관심 있으시다면 앰배서더 활동 방법과 자세한 혜택 내용을 안내드리겠습니다.\n\n긍정적인 검토 부탁드립니다!"}, {"title": "손글씨 후기 인플루언서 템플릿", "body": "안녕하세요 😊 홍카페입니다.\n\n이전에 홍카페 손글씨 후기 콘텐츠를 정성스럽게 작성해 주셔서 감사한 마음으로 연락드렸습니다.\n\n현재 홍카페에서 실제 상담을 경험한 후 개인 SNS 채널을 통해 후기를 소개해 주시는 ‘홍카페 운세상담 앰배서더’​를 모집하고 있는데요!\n기존에 좋은 콘텐츠를 작성해 주신 만큼 앰배서더 활동도 함께해 주시면 좋을 것 같아 먼저 제안드립니다 💜\n\n🔮 앰배서더 활동\n• 원하는 타로 / 신점 / 사주 상담사를 직접 선택하여 전화상담\n• 상담 후 개인 SNS에 월 1건 이상 후기 콘텐츠 작성\n• 개인 전용 링크를 통해 홍카페 소개\n\n🎁 활동 혜택\n• 상담 활동을 위한 코인 제공\n• 채널별 게시물 및 신규 회원 유입 실적에 따라 홍카페 캐시 최대 150,000코인 보너스 지급\n• 개인 전용 링크로 가입한 신규 회원이 유료 상담을 진행할 경우, 실제 결제 금액의 5% 리워드 적립\n\n인스타그램뿐만 아니라 스레드, 유튜브, 네이버 블로그, 네이버 카페 등 다양한 채널에서 활동하실 수 있습니다.\n\n관심 있으시다면 자세한 활동 안내와 신청 링크 전달드리겠습니다 😊\n홍카페와 좋은 인연으로 다시 함께할 수 있으면 좋겠습니다. 감사합니다 💜"}, {"title": "SNS 댓글, 네이버 톡톡 템플릿", "body": "안녕하세요, 운세 상담 플랫폼 홍카페입니다.\n\n현재 홍카페에서 인플루언서 앰배서더를 모집하고 있어 댓글 남겨드립니다.\n\n홍카페 상담을 직접 경험하고 SNS를 통해 상담 후기와 홍카페를 소개해주시는 활동이에요!\n\n🎁 앰배서더 혜택\n- 콘텐츠 활동에 따른 홍카페 캐시 최대 150,000코인 지급\n- 개인 전용 링크로 가입한 신규 회원의 유료 결제 발생 시 결제 금액의 5% 리워드 지급\n(ex. 전용 링크로 가입한 회원이 30,000코인 결제 시 리워드 금액 1,500원 지급)\n\n관심 있으시면 자세한 내용 안내드릴 수 있으니\n편하게 메세지 부탁드립니다."}, {"title": "이메일 템플릿(기본)", "body": "- 제목: [홍카페] 앰배서더 활동 제안\n\n- 내용:\n안녕하세요, [채널명/이름] 님.\n\n국내 1위 운세 상담 플랫폼 홍카페를 운영하는 홍카페 운영팀입니다.\n평소 콘텐츠를 통해 다양한 서비스와 경험을 소개하고 계신 점이 인상 깊어 연락드립니다.\n\n─────────────────────────────\n\n🎯 홍카페 앰배서더 제안\n\n이번에 홍카페에서 앰배서더를 모집하게 되어 제안드립니다.\n\n홍카페의 다양한 상담 서비스를 직접 경험해보시고,\n개인 SNS 채널을 통해 상담 후기와 홍카페를 소개해주시는 활동입니다.\n\n─────────────────────────────\n\n< 앰배서더 활동 혜택 >\n\n1. 앰배서더 선정 리워드\n앰배서더 선정 및 활동 시 홍카페 캐시 30,000코인 지급\n\n2. 콘텐츠 리워드 \n콘텐츠 활동에 따른 홍카페 캐시 최대 150,000코인 지급\n\n3. 앰배서더 리워드\n개인 전용 링크로 가입한 신규 회원의 유료 결제 발생 시 결제 금액의 5% 리워드 지급\n(ex. 전용 링크로 가입한 회원이 30,000코인 결제 시 리워드 금액 1,500원 지급)\n\n※ 상세 활동 기준 및 혜택 내용은 앰배서더 안내를 통해 확인하실 수 있습니다.\n\n─────────────────────────────\n\n홍카페란?\n💬 타로·사주·신점 등 다양한 1:1 상담\n📱 전화 및 채팅을 통한 상담 서비스\n\n🔗 홍카페 바로가기\nhttps://www.hongcafe.com/\n\n🔗 앰배서더 모집 페이지 바로가기\nhttps://www.hongcafe.com/event/event/detail/EV-20260827104723\n\n관심 있으시다면 자세한 활동 내용과 참여 방법을 안내드리겠습니다.\n\n편하게 회신 부탁드립니다\n\n감사합니다."}, {"title": "이메일 템플릿(새해)", "body": "- 제목: [홍카페] 앰배서더 활동 제안\n\n- 내용: \n안녕하세요, [채널명/이름] 님.\n\n국내 1위 운세 상담 플랫폼 홍카페를 운영하는 홍카페 운영팀입니다.\n평소 콘텐츠를 통해 다양한 서비스와 경험을 소개하고 계신 점이 인상 깊어 연락드립니다.\n\n─────────────────────────────\n\n🎯 홍카페 앰배서더 제안\n\n이번에 홍카페에서 앰배서더를 모집하게 되어 제안드립니다.\n\n홍카페의 다양한 상담 서비스를 직접 경험해보시고 개인 SNS 채널을 통해 상담 후기와 홍카페를 소개해주시는 활동입니다.\n\n특히 연말을 맞아 다가오는 2027년 신년 운세 및 새해 운세 상담을 주제로 콘텐츠를 소개해주시는 활동도 기대하고 있습니다.\n\n─────────────────────────────\n\n< 앰배서더 활동 혜택 >\n\n1. 앰배서더 선정 리워드\n앰배서더 선정 및 활동 시 홍카페 캐시 30,000코인 지급\n\n2. 콘텐츠 리워드 \n콘텐츠 활동에 따른 홍카페 캐시 최대 150,000코인 지급\n\n3. 앰배서더 리워드\n개인 전용 링크로 가입한 신규 회원의 유료 결제 발생 시 결제 금액의 5% 리워드 지급\n(ex. 전용 링크로 가입한 회원이 30,000코인 결제 시 리워드 금액 1,500원 지급)\n\n※ 상세 활동 기준 및 혜택 내용은 앰배서더 안내를 통해 확인하실 수 있습니다.\n\n─────────────────────────────\n\n홍카페란?\n💬 타로·사주·신점 등 다양한 1:1 상담\n📱 전화 및 채팅을 통한 상담 서비스\n\n🔗 홍카페 바로가기\nhttps://www.hongcafe.com/\n\n🔗 앰배서더 모집 페이지 바로가기\nhttps://www.hongcafe.com/event/event/detail/EV-20260827104723\n\n관심 있으시다면 자세한 활동 내용과 참여 방법을 안내드리겠습니다.\n\n편하게 회신 부탁드립니다\n\n감사합니다.\n홍카페 운영팀 드림"}]}, {"name": "유니타로", "items": [{"title": "SNS DM(기본)", "body": "안녕하세요 :)\n전화 운세 상담 플랫폼 홍카페 유니타로 담당자입니다.\n\n홍카페는 타로·사주·신점 상담을\n전화 기반 1:1 서비스로 운영하는 플랫폼입니다.\n\n현재 타로 상담 활성화와 문화 확산을 위해\n대학생 대상 타로 교육 지원 및\n카드·상담 물품 지원 프로그램을 함께 기획하고 있습니다.\n\n타로 상담이 사회적 고립을 겪는 분들에게\n자신의 이야기를 꺼낼 수 있는 하나의 창구가 될 수 있다고 생각해\nXXX학과와의 협업 가능성을 조심스럽게 문의드립니다.\n\n간단한 논의나 추가 설명이 가능하시다면\n편하신 일정에 맞춰 안내드리고 싶습니다.\n\n검토해주셔서 감사합니다.\n좋은 인연으로 이어지길 기대하겠습니다 :)"}, {"title": "SNS DM(모임, 동호회 등)", "body": "안녕하세요, 운세 상담 플랫폼 홍카페 운영팀입니다.\n\n홍카페는 타로·사주·신점 상담을 전화 기반 1:1 서비스로 운영하고 있는 플랫폼으로, 타로·사주 등 운세 관련 모임을 운영하고 계신 것을 보고 홍카페에서 진행 중인 교육 및 활동 지원 프로그램 ‘유니타로’를 제안드리고자 조심스럽게 연락드립니다.\n\n유니타로는 운세 분야에 관심 있는 분들이 함께 배우고 교류하며 다양한 활동을 이어갈 수 있도록 관련 모임과 스터디를 지원하는 프로그램입니다.\n\n현재 운영 중인 모임에서 타로 교육이나 새로운 활동을 진행해보고 싶으신 경우, 모임의 성격과 활동 방향에 맞춰 필요한 부분을 지원해드리고 있습니다.\n\n<유니타로 지원 사항>\n✔ 타로카드 및 활동 물품 지원\n✔ 기초 타로 교육 및 리딩 가이드 제공\n✔ 타로·사주 등 운세 관련 스터디 및 소모임 활동 지원\n✔ 모임 활동 콘텐츠 및 운영 방향 지원\n\n기존에 타로·사주를 공부하고 계신 분들은 물론, 운세 분야에 관심은 있지만 아직 본격적으로 접해보지 않은 분들도 함께 참여할 수 있어 모임 내 새로운 프로그램이나 정기 활동으로 활용해보셔도 좋을 것 같습니다.\n\n관심 있으시다면 유니타로 프로그램과 지원 내용에 대해 자세히 안내드리겠습니다.\n부담 없이 편하게 문의 부탁드립니다 😊\n\n읽어주셔서 감사합니다.\n\n홍카페 운영팀 드림"}, {"title": "SNS DM(모임 답변 시)", "body": "안녕하세요. 문의 주셔서 감사합니다 😊\n\n현재 홍카페에서는 타로·사주 등 운세 분야의 스터디 및 모임이 보다 활발하게 운영될 수 있도록 모임 특성에 맞춰 활동 지원을 진행하고 있습니다.\n아래와 같이 필수 진행 사항과 선택 지원 사항으로 나누어 안내드립니다.\n\n📌 필수 진행 사항\n\n① 모임원 전용 상담 코인 지원\n- 모임장님께 전용 QR코드를 제공해드리며 모임원분들이 해당 QR코드를 통해 홍카페에 가입할 경우 20,000코인을 지급해드립니다.\n\n홍카페 전화상담은 상담사에 따라 이용 코인이 다르며, 500코인 상담사 기준 약 20분간 상담받을 수 있는 금액입니다.\n지급된 코인을 활용하여 홍카페에서 활동 중인 타로·신점·사주 상담사에게 직접 상담을 받아보고, 실제 상담 방식과 리딩을 경험하며 모임원분들의 상담 임상 경험을 쌓는 데 활용하실 수 있습니다.\nㅤ\n② 월 1회 모임 활동 사진 제공\n- 스터디 및 모임 진행 시 월 1회 활동 사진을 전달해주시면 됩니다.\nㅤ\n전달해주신 사진은 추후 홍카페 비즈 채널을 통해 모임 소개 및 활동 관련 콘텐츠로 활용될 수 있습니다.\nㅤ\n🎁 선택 지원 사항\nㅤ\n① 외부 타로 행사 및 이벤트 물품 지원\n- 모임에서 외부 타로 행사나 이벤트 등을 진행하실 경우, 활동에 필요한 물품을 지원해드릴 수 있습니다.\nㅤ\n② 홍카페 상담사 타로 수업 지원\n- 모임장님께서 원하시는 경우 홍카페에서 활동 중인 상담사와 ZOOM을 통한 타로 수업을 지원해드립니다.\nㅤ\n📍 별도 홍보 의무는 없습니다.\n필수적으로 진행해주실 부분은 전용 QR코드를 통한 모임원 가입 및 월 1회 활동 사진 제공이며, 별도의 SNS 홍보나 콘텐츠 업로드를 의무적으로 요청드리고 있지는 않습니다.\nㅤ\n모임원분들이 실제 상담을 경험하며 리딩과 상담에 대한 경험을 넓히고, 모임 활동에도 실질적인 도움이 될 수 있도록 지원하는 프로그램입니다 😊\nㅤ\n모임의 성격이나 현재 진행하고 계신 활동을 알려주시면 그에 맞춰 지원 가능한 부분도 함께 안내드리겠습니다.\nㅤ\n감사합니다.ㅤ\n홍카페 운영팀 드림"}]}];
+function defaults(){return{sections:JSON.parse(JSON.stringify(DEFAULT_SECTIONS))}}
+function DEF(){var d=defaults();d.sections.forEach(function(s,a){s.id="s"+(a+1);s.items.forEach(function(it,b){it.id="s"+(a+1)+"i"+(b+1)})});return d}
+function defItem(id){var f=null;DEF().sections.forEach(function(s){s.items.forEach(function(it){if(it.id===id)f=it})});return f}
+function modified(it){var d=defItem(it.id);return !!d&&(d.title!==it.title||d.body!==it.body)}
+function local(){try{var r=localStorage.getItem(KEY);var d=r?JSON.parse(r):null;return d&&d.sections?d:null}catch(e){return null}}
+function save(){
+  if(mode==="shared"&&dbDoc){dbDoc.set({sections:D.sections,updatedAt:Date.now()}).catch(function(){toast("저장하지 못했어요. 수정 권한이 있는지 확인해주세요")});return}
+  try{localStorage.setItem(KEY,JSON.stringify(D))}catch(e){toast("자동 저장에 실패했어요. 백업으로 따로 보관해주세요")}
+}
+function esc(t){return String(t).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function $(id){return document.getElementById(id)}
+function curSec(){return D.sections.filter(function(s){return s.id===sel.s})[0]}
+function curItem(){var s=curSec();return s?s.items.filter(function(i){return i.id===sel.i})[0]:null}
+function toast(m){var t=$("toast");t.textContent=m;t.classList.add("show");clearTimeout(toast.t);toast.t=setTimeout(function(){t.classList.remove("show")},1800)}
+function hl(text,term){
+  if(!term)return esc(text);
+  var re=new RegExp("("+term.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+")","gi");
+  return text.split(re).map(function(p,i){return i%2?"<mark>"+esc(p)+"</mark>":esc(p)}).join("");
+}
+function swap(arr,idx,dir){var j=idx+dir;if(j<0||j>=arr.length)return false;var t=arr[idx];arr[idx]=arr[j];arr[j]=t;return true}
+
+function render(){
+  if(!curSec()&&D.sections.length){sel.s=D.sections[0].id;sel.i=null}
+  var s=curSec();
+  if(s&&!curItem())sel.i=s.items.length?s.items[0].id:null;
+  var r="<div class='brand'>홍카페 섭외 템플릿</div><div class='cap'>섹션</div>";
+  D.sections.forEach(function(x){
+    r+="<button class='sec"+(x.id===sel.s&&!q&&view!=="guide"?" on":"")+"' data-sec='"+x.id+"'><span>"+esc(x.name)+"</span><span class='c'>"+x.items.length+"</span></button>";
+  });
+  if(W)r+="<div class='addrow'><button class='addsec' id='addSec'>＋ 섹션 추가</button><button class='arrow' data-m='-1' aria-label='선택한 섹션을 위로 이동' title='선택한 섹션을 위로'>▲</button><button class='arrow' data-m='1' aria-label='선택한 섹션을 아래로 이동' title='선택한 섹션을 아래로'>▼</button></div>";
+  r+="<button class='sec gbtn"+(view==="guide"&&!q?" on":"")+"' data-guide='1'><span>사용 가이드</span></button>";
+  $("rail").innerHTML=r;
+  var t="";
+  if(mode!=="loading"){
+    if(q)t="<h2>전체 검색</h2>";
+    else if(view==="guide")t="<h2>사용 가이드</h2>";
+    else if(s)t="<h2>"+esc(s.name)+"</h2>"+(W?"<button class='g' data-a='secEdit'>섹션명 수정</button><button class='g red' data-a='secDel'>삭제</button>":"");
+  }
+  $("title").innerHTML=t;
+  $("main").innerHTML=mode==="loading"?"<div class='empty'><b>불러오는 중이에요</b>잠시만 기다려주세요.</div>":(q?renderSearch():view==="guide"?renderGuide():renderMain(s));
+}
+
+function renderSearch(){
+  var term=q.toLowerCase(),out=[];
+  D.sections.forEach(function(s){s.items.forEach(function(i){
+    var inT=i.title.toLowerCase().indexOf(term)>=0,pos=i.body.toLowerCase().indexOf(term);
+    if(inT||pos>=0)out.push({s:s,i:i,pos:pos});
+  })});
+  var h="<h2 class='rh'>“"+esc(q)+"” 검색 결과 "+out.length+"건</h2>";
+  if(!out.length)return h+"<div class='empty'><b>찾는 템플릿이 없어요</b>다른 단어로 검색해보세요.</div>";
+  out.forEach(function(o){
+    var sn="";
+    if(o.pos>=0){var a=Math.max(0,o.pos-30);sn=(a>0?"…":"")+o.i.body.substr(a,110)+(a+110<o.i.body.length?"…":"")}
+    else sn=o.i.body.substr(0,80)+(o.i.body.length>80?"…":"");
+    h+="<button class='res' data-s='"+o.s.id+"' data-i='"+o.i.id+"'><div class='p'>"+esc(o.s.name)+"</div><div class='t'>"+hl(o.i.title,q)+"</div><div class='s'>"+hl(sn,q)+"</div></button>";
+  });
+  return h;
+}
+
+function renderMain(s){
+  if(!s)return "<div class='empty'><b>아직 섹션이 없어요</b>왼쪽의 “섹션 추가”로 첫 섹션을 만들어보세요.</div>";
+  var h="<div class='pick'>";
+  if(s.items.length)h+="<select id='pick' aria-label='템플릿 선택'>"+s.items.map(function(i){return"<option value='"+i.id+"'"+(i.id===sel.i?" selected":"")+">"+esc(i.title)+"</option>"}).join("")+"</select>";
+  if(W)h+="<button class='btn' data-a='itemAdd'>＋ 템플릿 추가</button>";
+  h+="</div>";
+  var it=curItem();
+  if(it){
+    var ed=W&&editId===it.id;
+    h+="<div class='tpl'><h3>"+esc(it.title)+"</h3>"+
+     (ed?"<textarea class='inl' id='inl' aria-label='템플릿 내용 수정'>"+esc(draft)+"</textarea>":"<div class='bubble"+(W?" ed":"")+"' data-a='inline'"+(W?" title='클릭해서 바로 수정'":"")+">"+esc(it.body)+"</div>")+
+     "<div class='meta'>"+
+     (ed?"<button class='btn' data-a='inlSave'>저장</button><button class='btn line' data-a='inlCancel'>취소</button><span class='n'>Ctrl+Enter 저장, Esc 취소</span>":
+      "<button class='btn' data-a='copy'>내용 복사</button>"+(W?"<button class='btn line' data-a='itemEdit'>수정</button><button class='btn line' data-a='itemDel'>삭제</button>":"")+(W&&defItem(it.id)?"<button class='btn line' data-a='itemReset'"+(modified(it)?"":" disabled title='아직 수정하지 않은 기본 상태예요'")+">기본으로 되돌리기</button>":"")+"<span class='n'>"+it.body.length+"자"+(W?", 노란 칸을 누르면 바로 수정돼요":"")+"</span>")+
+     "</div></div>";
+  }else h+="<div class='empty'><b>이 섹션에는 템플릿이 없어요</b>“템플릿 추가”를 눌러 첫 템플릿을 만들어보세요.</div>";
+  h+="<div class='foot'>"+(W?"<button data-a='backup'>백업 / 불러오기</button><button data-a='resetAll' style='margin-left:12px'>기본값으로 전체 초기화</button>":"")+"<span style='color:var(--sub);margin-left:"+(W?"12":"0")+"px'>"+(!W?"보기 전용이에요":mode==="local"?"이 브라우저에만 저장돼요":"수정하면 함께 보는 모든 사람에게 바로 반영돼요")+"</span></div>";
+  return h;
+}
+
+function gstep(n,t,notes){return "<li class='gstep'><span class='snum'>"+n+"</span><div class='sbody'><div class='stitle'>"+t+"</div>"+(notes||[]).map(function(x){return "<p class='gnote'>"+x+"</p>"}).join("")+"</div></li>"}
+function renderGuide(){
+  return "<div class='gcard'><div class='glabel'>1. 템플릿 사용 방법</div>"+
+   "<p class='gline'>왼쪽에서 <strong>섹션</strong>을 고르고, 위쪽 <strong>드롭박스</strong>에서 세부 항목을 선택하면 템플릿이 나옵니다.</p>"+
+   "<p class='gnote'>찾는 문구가 있으면 오른쪽 위 <strong>검색창</strong>에 단어를 입력하세요. 모든 섹션에서 한 번에 찾아줍니다.</p>"+
+   "<p class='gnote'>기본 템플릿이 제공되며, 내 스타일대로 고쳐 써도 다른 담당자 화면에는 영향이 없습니다.</p></div>"+
+  "<div class='gcard'><div class='glabel'>2. 템플릿 보내는 순서</div><ol class='steps'>"+
+   gstep(1,"섹션 선택",["왼쪽 목록에서 섭외 종류를 고릅니다."])+
+   gstep(2,"세부 항목 선택",["드롭박스에서 상황에 맞는 템플릿을 고릅니다."])+
+   gstep(3,"내용 확인",["노란 칸에서 문구를 확인하고, 상대에 맞게 바꿀 부분은 보내기 전에 수정해 주세요."])+
+   gstep(4,"<span class='demo dark'>내용 복사</span>",["복사한 문구를 카카오 오픈 채팅, 이메일 등에 붙여넣어 보냅니다."])+
+  "</ol></div>"+
+  "<div class='gcard'><div class='glabel'>3. 내 스타일로 고치기</div><ol class='steps'>"+
+   gstep(1,"문구 바로 수정",["노란 칸을 클릭하면 그 자리에서 고칠 수 있고, <strong>저장</strong>(Ctrl+Enter)을 눌러야 반영됩니다. 취소는 Esc입니다."])+
+   gstep(2,"제목·섹션 관리",["<strong>수정</strong>·<strong>삭제</strong> 버튼으로 템플릿 제목을 바꾸거나 다른 섹션으로 옮기고, <strong>＋ 템플릿 추가</strong>로 새 템플릿을 만듭니다.","섹션은 왼쪽의 <strong>＋ 섹션 추가</strong>, 섹션 제목 옆의 <strong>섹션명 수정</strong>, ▲▼ 버튼으로 관리합니다."])+
+   gstep(3,"<span class='demo line'>기본으로 되돌리기</span>",["수정한 템플릿은 이 버튼으로 처음 제공된 문구로 되돌릴 수 있습니다."])+
+  "</ol></div>"+
+  "<div class='gcard'><div class='glabel'>참고사항</div>"+
+   "<div class='callout'>수정한 내용은 <strong>이 PC의 이 브라우저에만 저장</strong>됩니다. 다른 PC·다른 브라우저의 담당자와는 공유되지 않아요.</div>"+
+   "<ul class='glist'><li>시크릿 모드에서는 창을 닫으면 수정 내용이 사라집니다.</li><li>브라우저 데이터를 지우거나 접속 주소가 바뀌기 전에는 템플릿 화면 아래의 <strong>백업 / 불러오기</strong>로 백업해 주세요.</li><li><strong>기본값으로 전체 초기화</strong>를 누르면 삭제한 기본 템플릿도 되살아나지만, 직접 수정·추가한 내용은 모두 사라집니다.</li><li>기본 템플릿이 나중에 새로 바뀌어도, 이미 수정해 쓰고 있는 브라우저에는 자동으로 반영되지 않습니다.</li></ul></div>";
+}
+function modal(html,onOk,label,danger){
+  $("modal").innerHTML=html+"<div class='acts'><button class='btn line' id='mc'>취소</button>"+(onOk?"<button class='btn"+(danger?" danger":"")+"' id='mo'>"+(label||"저장")+"</button>":"")+"</div>";
+  $("ov").classList.add("show");
+  $("mc").onclick=closeModal;
+  if(onOk)$("mo").onclick=onOk;
+  var f=$("f1");if(f)f.focus();
+}
+function closeModal(){$("ov").classList.remove("show")}
+function v(id){return $(id).value}
+function after(){save();closeModal();render()}
+
+function secForm(sec){
+  modal("<h3>"+(sec?"섹션명 수정":"새 섹션 추가")+"</h3><label>섹션명</label><input id='f1' value='"+(sec?esc(sec.name):"")+"'>",function(){
+    var n=v("f1").trim();if(!n){toast("섹션명을 입력해주세요");return}
+    if(sec)sec.name=n;else{var ns={id:uid(),name:n,items:[]};D.sections.push(ns);view="tpl";sel.s=ns.id;sel.i=null;q="";$("q").value="";$("sbox").classList.remove("has")}
+    after();
+  });
+}
+function itemForm(it){
+  var cur=curSec();
+  var opts=D.sections.map(function(s){return"<option value='"+s.id+"'"+(s.id===cur.id?" selected":"")+">"+esc(s.name)+"</option>"}).join("");
+  modal("<h3>"+(it?"템플릿 수정":"새 템플릿 추가")+"</h3><label>제목 (드롭박스에 표시돼요)</label><input id='f1' value='"+(it?esc(it.title):"")+"'>"+
+   "<label>섹션 (바꾸면 다른 섹션으로 이동해요)</label><select id='f3'>"+opts+"</select>"+
+   "<label>내용</label><textarea id='f2'>"+(it?esc(it.body):"")+"</textarea>",function(){
+    var t=v("f1").trim(),b=v("f2"),target=D.sections.filter(function(s){return s.id===v("f3")})[0];
+    if(!t){toast("제목을 입력해주세요");return}
+    if(it){
+      it.title=t;it.body=b;
+      if(target.id!==cur.id){cur.items=cur.items.filter(function(x){return x.id!==it.id});target.items.push(it);sel.s=target.id;sel.i=it.id}
+    }else{var ni={id:uid(),title:t,body:b};target.items.push(ni);sel.s=target.id;sel.i=ni.id}
+    after();
+  });
+}
+function confirmDel(msg,fn){modal("<h3>삭제할까요?</h3><p>"+esc(msg)+"</p>",function(){fn();after()},"삭제",true)}
+function saveInline(){var it=curItem();if(!it||editId!==it.id)return;var t=$("inl");it.body=t?t.value:draft;editId=null;save();render();toast("저장했어요")}
+function copyText(t){
+  function fb(){var a=document.createElement("textarea");a.value=t;document.body.appendChild(a);a.select();try{document.execCommand("copy");toast("복사했어요")}catch(e){toast("복사에 실패했어요")}document.body.removeChild(a)}
+  try{navigator.clipboard.writeText(t).then(function(){toast("복사했어요")},fb)}catch(e){fb()}
+}
+function saveFile(){
+  var d=new Date(),n="홍카페_템플릿_백업_"+d.getFullYear()+("0"+(d.getMonth()+1)).slice(-2)+("0"+d.getDate()).slice(-2)+".txt";
+  var a=document.createElement("a");
+  a.href=URL.createObjectURL(new Blob([JSON.stringify(D)],{type:"text/plain;charset=utf-8"}));
+  a.download=n;document.body.appendChild(a);a.click();document.body.removeChild(a);
+  setTimeout(function(){URL.revokeObjectURL(a.href)},1500);
+  toast("백업 파일을 저장했어요 (다운로드 폴더)");
+}
+function backup(){
+  var pv=window.self!==window.top;
+  modal("<h3>백업 / 불러오기</h3>"+
+   "<p style='font-size:13px;color:var(--sub)'>“파일로 저장”을 누르면 백업 파일이 내려받아져요. 복원할 때는 “파일에서 불러오기”로 그 파일을 고른 뒤 “불러오기”를 누르세요. 아래 글자를 복사·붙여넣는 방식도 쓸 수 있어요. 불러오면 지금 내용은 덮어써져요.</p>"+
+   (pv?"<p style='font-size:13px;color:var(--red)'>※ 지금 화면(미리보기)에서는 파일 저장·불러오기가 동작하지 않아요. 글자 복사·붙여넣기를 이용해 주세요.</p>":"")+
+   "<div style='display:flex;gap:8px;flex-wrap:wrap;margin:12px 0'><button class='btn line' id='bkSave'>파일로 저장</button><button class='btn line' id='bkLoad'>파일에서 불러오기</button><button class='btn line' id='bkCopy'>글자 복사</button></div>"+
+   "<input type='file' id='bkFile' accept='.txt,.json' style='display:none'>"+
+   "<textarea id='f2' style='min-height:200px;font-size:12px'>"+esc(JSON.stringify(D))+"</textarea>",function(){
+    try{var d=JSON.parse(v("f2"));if(!d.sections)throw 1;D=d;sel.s=null;sel.i=null;after();toast("불러왔어요")}catch(e){toast("형식이 올바르지 않아요")}
+  },"불러오기");
+  $("bkSave").onclick=saveFile;
+  $("bkCopy").onclick=function(){copyText(v("f2"))};
+  $("bkLoad").onclick=function(){$("bkFile").click()};
+  $("bkFile").onchange=function(){
+    var f=this.files&&this.files[0];if(!f)return;
+    var r=new FileReader();
+    r.onload=function(){$("f2").value=r.result;toast("파일을 읽었어요. “불러오기”를 눌러 적용하세요")};
+    r.onerror=function(){toast("파일을 읽지 못했어요")};
+    r.readAsText(f,"utf-8");
+  };
+}
+
+$("rail").onclick=function(e){
+  if(e.target.closest("#addSec")){secForm(null);return}
+  var ar=e.target.closest(".arrow");
+  if(ar){var s0=curSec();if(s0&&swap(D.sections,D.sections.indexOf(s0),+ar.getAttribute("data-m"))){save();render()}return}
+  var b=e.target.closest(".sec");if(!b)return;
+  if(b.getAttribute("data-guide")){view="guide";q="";$("q").value="";$("sbox").classList.remove("has");render();return}
+  view="tpl";sel.s=b.getAttribute("data-sec");sel.i=null;q="";$("q").value="";$("sbox").classList.remove("has");render();
+};
+$("title").onclick=$("main").onclick=function(e){
+  var r=e.target.closest(".res");
+  if(r){view="tpl";sel.s=r.getAttribute("data-s");sel.i=r.getAttribute("data-i");q="";$("q").value="";$("sbox").classList.remove("has");render();return}
+  var b=e.target.closest("[data-a]");if(!b)return;
+  var a=b.getAttribute("data-a"),s=curSec(),it=curItem();
+  if(a==="secEdit")secForm(s);
+  else if(a==="secDel")confirmDel("“"+s.name+"” 섹션과 안의 템플릿 "+s.items.length+"개가 모두 삭제돼요.",function(){D.sections=D.sections.filter(function(x){return x.id!==s.id});sel.s=null;sel.i=null});
+  else if(a==="itemAdd")itemForm(null);
+  else if(a==="itemEdit")itemForm(it);
+  else if(a==="itemDel")confirmDel("“"+it.title+"” 템플릿이 삭제돼요.",function(){s.items=s.items.filter(function(x){return x.id!==it.id});sel.i=null});
+  else if(a==="copy")copyText(it.body);
+  else if(a==="inline"){if(W&&it&&!String(window.getSelection())){editId=it.id;draft=it.body;render();var tx=$("inl");if(tx){tx.focus();tx.setSelectionRange(tx.value.length,tx.value.length)}}}
+  else if(a==="inlSave")saveInline();
+  else if(a==="inlCancel"){editId=null;render()}
+  else if(a==="itemReset")modal("<h3>기본으로 되돌릴까요?</h3><p>“"+esc(it.title)+"” 템플릿을 처음 제공된 문구로 되돌려요. 직접 수정한 내용은 사라집니다.</p>",function(){var dd=defItem(it.id);it.title=dd.title;it.body=dd.body;after()},"되돌리기")
+  else if(a==="resetAll")modal("<h3>기본값으로 전체 초기화</h3><p>모든 섹션과 템플릿이 처음 제공된 기본 상태로 돌아가고, 직접 수정·추가한 내용은 모두 사라져요. 필요하면 만저 백업해 주세요.</p>",function(){D=DEF();sel.s=null;sel.i=null;editId=null;after()},"초기화",true)
+  else if(a==="backup")backup();
+};
+$("main").onchange=function(e){if(e.target.id==="pick"){sel.i=e.target.value;render()}};
+$("q").oninput=function(){q=this.value.trim();$("sbox").classList.toggle("has",!!this.value);render()};
+$("qx").onclick=function(){$("q").value="";q="";$("sbox").classList.remove("has");render();$("q").focus()};
+$("main").addEventListener("input",function(e){if(e.target.id==="inl")draft=e.target.value});
+document.addEventListener("keydown",function(e){
+  var open=$("ov").classList.contains("show");
+  if(e.key==="Escape"){if(open)closeModal();else if(editId){editId=null;render()}}
+  else if(e.key==="Enter"&&(e.ctrlKey||e.metaKey)&&editId&&!open)saveInline();
+});
+$("ov").onclick=function(e){if(e.target===this)closeModal()};
+D=local()||DEF();mode="local";
+try{if(!localStorage.getItem(KEY+"_seen")){view="guide";localStorage.setItem(KEY+"_seen","1")}}catch(e){}
+render();
+</script>
+</body>
+</html>
